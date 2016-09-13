@@ -1,0 +1,47 @@
+{
+  "name": "gulp-jade-typescript-stack",
+  "version": "1.0.0",
+  "description": "Front-end Stack with gulp, Jade, TypeScript, SASS",
+  "author": "Gairal",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "Front-end",
+    "Jade",
+    "Sass",
+    "css",
+    "JavaScript",
+    "TypeScript",
+    "silex"
+  ],
+  "devDependencies": {
+    "browser-sync": "~2.14.0",
+    "require-dir": "~0.3.0",
+    "run-sequence": "~1.2.1",
+    "gulp": "~3.9.1",
+    "browserify": "~13.1.0",
+    "tsify": "~1.0.4",
+    "vinyl-source-stream": "~1.1.0",
+    "del": "~2.2.1",
+    "minimist": "~1.2.0",
+    "gulp-inject": "~4.1.0",
+    "gulp-usemin": "~0.3.19",
+    "gulp-uglify": "~1.5.4",
+    "gulp-clean-css": "~2.0.12",
+    "gulp-rev": "~7.1.0",
+    "gulp-sass-lint": "~1.2.0",
+    "gulp-imagemin": "~3.0.1",
+    "gulp-jshint": "~2.0.1",
+    "jshint-stylish": "~2.2.0",
+    "gulp-sass": "~2.3.2",
+    "gulp-replace": "~0.5.4",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-typescript": "2.13.6"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.0"
+  },
+  "scripts": {
+    "postinstall": "typings install"
+  }
+}

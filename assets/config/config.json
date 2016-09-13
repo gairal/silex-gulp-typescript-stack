@@ -1,0 +1,55 @@
+{
+    "base": {
+        "src": "src/",
+        "build": "build/",
+        "compile": "compile/",
+        "test": "test/",
+        "vendor": "vendor/",
+        "static": "static/"
+    },
+    "path": {
+        "sass": "assets/scss/",
+        "css": "assets/css/",
+        "images": "assets/img/",
+        "fonts": "assets/fonts/",
+        "js": "app/",
+        "root": "root/"
+    },
+    "files": {
+        "index": "index.html",
+        "pugindex": "index.pug",
+        "html": "**/*.html",
+        "pug": "**/*.pug",
+        "tmpl": "**/*.tmpl",
+        "sass": "app.scss",
+        "sassAll": "**/*.scss",
+        "css": "**/*.css",
+        "js": "**/*.js",
+        "ts": "**/*.ts",
+        "tsindex": "**/app.ts",
+        "fonts": "**",
+        "images": "{,*/,*/*/}*.{png,jpg,jpeg,gif}",
+        "root": "**",
+        "hidden": ".**",
+        "static": "**/*.*"
+    },
+    "vendor":{
+        "js": [
+            "node_modules/jquery/dist/jquery.js",
+            "node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+        ],
+        "assets": []
+    },
+    "env": {
+        "dev": {
+            "api_url": "//api.dev.example.com",
+            "host": "dev.example.com",
+            "path": "/home/webadmin/htdocs/example.com"
+        },
+        "prod": {
+            "api_url": "//api.example.com",
+            "host": "example.com",
+            "path": "/home/webadmin/htdocs/example.com"
+        }
+    }
+}

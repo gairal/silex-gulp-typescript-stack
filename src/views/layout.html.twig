@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block page_title %} {% if page_title is defined %} {{ page_title }} {% else %}Acme {% endif %} {% endblock %}</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    </head>
+    <body>
+        {% include 'components/nav.html.twig' %}
+        <div class="container">
+            <header class="row">
+                {% block header %}{% endblock %}
+            </header>
+            <section>
+                {% block content %}
+                    Insert content here.
+                {% endblock %}
+            </section>
+        </div>
+
+        {% block script %}{% endblock %}
+
+    </body>
+</html>

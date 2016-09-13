@@ -1,0 +1,7 @@
+{
+  "project": "assets/config/tsconfig.json",
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules"
+  ]
+}
