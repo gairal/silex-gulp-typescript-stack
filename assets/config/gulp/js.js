@@ -5,6 +5,8 @@ var gulp = require('gulp');
 var glob = require('glob');
 var replace = require('gulp-replace');
 var jshint = require('gulp-jshint');
+var streamify = require('gulp-streamify');
+var uglify = require('gulp-uglify');
 var browserify = require('browserify');
 var tsify = require('tsify');
 var source = require('vinyl-source-stream');
@@ -19,15 +21,16 @@ gulp.task('js:build', function() {
   gulp.src([conf.base.src + conf.files.js])
     .pipe(jshint('./assets/config/.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(uglify())
     .pipe(gulp.dest(conf.base.build));
 });
 
 gulp.task('ts:build', function() {
   'use strict';
   var bundler = browserify({
-      basedir: '.',
-      entries: glob.sync(conf.base.src + conf.files.ts)
-    })
+    basedir: '.',
+    entries: glob.sync(conf.base.src + conf.files.ts)
+  })
     .plugin(tsify, {
       'project': './assets/config/tsconfig.json'
     });
@@ -35,5 +38,6 @@ gulp.task('ts:build', function() {
   return bundler.bundle()
     .on('error', handleError)
     .pipe(source('app.js'))
+    .pipe(streamify(uglify()))
     .pipe(gulp.dest(conf.base.build + conf.path.js));
 });

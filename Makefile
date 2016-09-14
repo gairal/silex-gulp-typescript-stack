@@ -8,5 +8,8 @@ run-php:
 run-assets:
 	gulp
 
+build-assets:
+	gulp build
+
 test:
-  vendor/bin/phpunit
+	vendor/bin/phpunit

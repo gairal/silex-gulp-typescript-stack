@@ -4,5 +4,5 @@ var del = require('del');
 
 gulp.task('clean', function (cb) {
   'use strict';
-  return del([conf.base.build, conf.base.compile, '.tmp'], cb);
+  return del([conf.base.build, '.tmp'], cb);
 });

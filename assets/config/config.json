@@ -1,8 +1,7 @@
 {
     "base": {
         "src": "assets/src/",
-        "build": "web/assets/",
-        "compile": "compile/"
+        "build": "web/assets/"
     },
     "path": {
         "sass": "scss/",

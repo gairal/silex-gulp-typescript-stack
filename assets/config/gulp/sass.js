@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sassLint = require('gulp-sass-lint');
 var autoprefixer = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
 
 function handleError(err) {
   console.log(err.toString());
@@ -26,5 +27,6 @@ gulp.task('sass', function () {
         browsers: ['last 2 versions'],
         cascade: false
     }))
+    .pipe(cleanCss({compatibility: 'ie9'}))
     .pipe(gulp.dest(conf.base.build + conf.path.css));
 });

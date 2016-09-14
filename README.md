@@ -3,9 +3,7 @@
 ---
 
 ### TODO
-- [ ] Complete README
-- [ ] PHPUNIT
-- [ ] Find a solution to compile (minify+concat) assets and update twigs
+- [ ] Solution to concat assets and update twigs
 
 ---
 
@@ -15,8 +13,9 @@ This seed repo is a starter kit for PHP developer based on Silex and a front-end
 
 * Best practice for HTML5, CSS and JavaScript organization
 * Code validation (HTML, JS, CSS)
-* HTML Templating
+* HTML Templating with Twig
 * CSS Preprocessing
+* PHPUnit
 
 ## Quick start
 ### Pre-requirements
@@ -36,8 +35,11 @@ cd silex-gulp-typescript-stack
 # install the repo with npm
 make install
 
-# start the server
-gulp
+# start the php server
+make run-php
+
+# start the assets server
+make run-assets
 ```
 go to [http://localhost:3000](http://localhost:3000) in your browser
 
@@ -62,39 +64,37 @@ angular2-webpack-starter/
 │  │   ├──.jshintrc                    * jshint configuration file
 │  │   ├──sass-lint.yml                * sasslint configuration file (Yaml format)
 │  │   ├──config.json                  * variables used got Gulp tasks
-│  │   ├──karma.conf.js                * Karma configuration file
 │  │   └──tsconfig.json                * TypeScript configuration
 │  │
-│  ├──src/                             * our source files that will be compiled to javascript
-│  │   ├──app/                         * JavaScript/TypeScript files
-│  │   │
-│  │   └──assets/                      * static assets are served here
-│  │       ├──img/                     * images
-│  │       └──scss/                    * Sass files
-│  │           ├──app.scss             * Main Sass files
-│  │           └──common/              * Sass common files
-│  │               ├──_bootstrap.scss  * Bootstrap Sass module import file
-│  │               ├──_mixins.scss     * for you own Sass mixins here
-│  │               └──_variables.scss  * for your sass variables
-│  │
-│  ├──gulpfile.js                      * gulp main configuration file
-│  ├──package.json                     * what npm uses to manage it's dependencies
-│  └──typings.json                     * Typings list (JQuery and Bootstrap)
+│  └──src/                             * our source files that will be compiled to /web
+│      ├──app/                         * JavaScript/TypeScript files
+│      ├──img/                         * images
+│      └──scss/                        * Sass files
+│          ├──app.scss                 * Main Sass files
+│          └──common/                  * Sass common files
+│              ├──_bootstrap.scss      * Bootstrap Sass module import file
+│              ├──_mixins.scss         * for you own Sass mixins here
+│              └──_variables.scss      * for your sass variables
 │
 ├──app
 │  └──Application.php                  * Silex app configuration file
 │
 ├──src
-│  ├──controllers                      * PHP controllers
+│  ├──controllers/                     * PHP controllers
 │  │
-│  ├──model                            * PHP model
+│  ├──model/                           * PHP model
 │  │
-│  └──views                            * Twig views
+│  └──views/                           * Twig views
 │
-├──tests                               * phpunit tests definitions
+├──tests/                              * phpunit tests definitions
 │
-└──web                                 * Public folder
-   └──index.php                        * PHP index file
+├──web/                                * Public folder
+│  └──index.php                        * PHP index file
+│
+├──composer.json                       * PHP dependency configuration
+├──gulpfile.js                         * gulp main configuration file
+├──phpunit.xml                         * PHPUnit testsuite configuration
+└──package.json                        * what npm uses to manage it's dependencies
 ```
 # Getting Started
 ## Dependencies
@@ -108,60 +108,48 @@ You need to install the following on you system
 Then install tools you'll need to run the app
 * sass (`gem install sass`)
 * gulp (`npm install gulp -g`)
-* typings (`npm install typings -g`)
 * typescript (`npm install typescript -g`)
-* karma (`npm install karma-cli -g`)
 
-## Installing
+## Installing''
 * `fork` this repo
 * `clone` your fork
-* `npm install` to install all dependencies
-* `gulp` to start the dev server
+* `make install` to install all dependencies
+* `make run-php` to start the php server
+* `make run-assets` to start the assets server
 
 ## Running the app
-After all dependencies are installed, just run `gulp` to start a local server using `browser-sync` which will watch your files and build them.
-browser-sync will display the address and port of your server (by default, `http://0.0.0.0:3000`).
+After all dependencies are installed, run `make run-php` and `make run-assets` to start the local php server as well as the assets watcher which will watch your files and build them when they are modified.
+The php server will display the address and port of your server (by default, `http://localhost:3000`).
 
 ### Gulp commands
 #### Server
 ```bash
-# build files then launch the server and watch files
-gulp
-# compiled version
-gulp run:compile
+# build assets files then watch files
+make run-assets
+# start the php server
+make run-php
 ```
 #### Build files
 ```bash
-# build files in ./build/ (Typescript, Sass, Jade) and validate them
-gulp build
-# "compile" files in ./compile/
-# minify and concatenate every css and js including
-# Optimize images compression
-# Site ready for production
-gulp compile
+# build assets then copy them to the ./web/assets folder
+make build-assets
 ```
-#### Validate files
+#### Test
 ```bash
-# runs the validations htmlhint, jshint, csslint, sasslint, TsLint
-gulp validate
-```
-#### Package site
-```bash
-# compile files then get the last git tag and create a zip named after it
-gulp delivery
-```
-#### Deploy site
-```bash
-# compile the site then send it to a given server path over scp
-gulp deploy
+# Run PHPUnit
+make test
 ```
 # Configuration
-Most of the configuration files are in ./config
+## Assets
+Most of the configuration files for the assets are in ./assets/config
 * `config.json`: contains the paths to the various kind of files used by Gulp
-* `.htmlhintrc` :htmlhint config files
 * `.jshintrc`: jshint config file (used only if using ES5 JavaScript)
 * `sass-lint.yml`: sasslint config file
 * `tsconfig.json`: TypeScript config file
+
+## Silex
+* `app/Application.php`: contains the Silex app configuration
+* `composer.json`: php dependencies configuration
 
 # License
 [MIT](/LICENSE.md)
