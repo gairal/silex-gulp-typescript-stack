@@ -1,11 +1,10 @@
-/// <reference path="../../../typings/index.d.ts" />
 import { ICalculator, Operation } from './calculator.model';
 export class Calculator implements ICalculator {
   private _result: number;
   private _currNum: number;
   private _currOpe: Operation;
   private _isEq: boolean;
-  
+
   constructor() {
       this.reset();
   }

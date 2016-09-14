@@ -1,4 +1,3 @@
-/// <reference path="../../typings/index.d.ts" />
 declare var $: any;
 
 import { Calculator } from './calculator/calculator';

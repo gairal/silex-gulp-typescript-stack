@@ -21,8 +21,8 @@ class MainController {
         return $app['twig']->render('pages/page1.html.twig');
     }
 
-    public function page2(Application $app) {
+    public function calculator(Application $app) {
 
-        return $app['twig']->render('pages/page2.html.twig');
+        return $app['twig']->render('pages/calculator.html.twig');
     }
 }

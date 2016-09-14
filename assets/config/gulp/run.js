@@ -1,12 +1,15 @@
+var conf = require('../config.json');
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 gulp.task('default', function (cb) {
   'use strict';
-  runSequence('build', 'browser-sync:build', 'watch', cb);
+  runSequence('build', 'watch', cb);
 });
 
-gulp.task('run:compile', function (cb) {
+gulp.task('watch', function () {
   'use strict';
-  runSequence('compile', 'browser-sync:compile', cb);
+  gulp.watch(conf.base.src + conf.path.sass + conf.files.sassAll, ['sass']);
+  gulp.watch(conf.base.src + conf.path.js + conf.files.js, ['js:build']);
+  gulp.watch(conf.base.src + conf.path.js + conf.files.ts, ['ts:build']);
 });

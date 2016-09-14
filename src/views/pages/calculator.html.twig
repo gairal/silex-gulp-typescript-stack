@@ -1,0 +1,77 @@
+{% extends "layout.html.twig" %}
+
+{% set page_title = 'Acme' %}
+
+
+{% block header %}
+    <h1>Calculator</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container calc">
+  <form>
+    <div class="form-group">
+      <input class="form-control" id="res" type="number" readonly>
+    </div>
+  </form>
+  <div class="row text-center">
+    <div class="col-xs-12">
+      <button class="btn btn-danger btn-lg" data-calculator="AC">AC</button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="7">7</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="8">8</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="9">9</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-warning btn-lg" data-calculator="/">/</button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="4">4</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="5">5</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="6">6</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-warning btn-lg" data-calculator="x">x</button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="1">1</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="2">2</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="3">3</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-warning btn-lg" data-calculator="-">-</button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-3">
+      <button class="btn btn-default btn-lg" data-calculator="0">0</button>
+    </div>
+    <div class="col-xs-6">
+      <button class="btn btn-success btn-lg" data-calculator="=">=</button>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-warning btn-lg" data-calculator="+">+</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

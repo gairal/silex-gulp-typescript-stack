@@ -4,7 +4,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>{% block page_title %} {% if page_title is defined %} {{ page_title }} {% else %}Acme {% endif %} {% endblock %}</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/app.css">
 
     </head>
     <body>
@@ -21,6 +21,8 @@
         </div>
 
         {% block script %}{% endblock %}
-
-    </body>
+        <script type="text/javascript" src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/app/app.js"></script>
+        </body>
 </html>

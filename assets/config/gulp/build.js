@@ -3,5 +3,5 @@ var runSequence = require('run-sequence');
 
 gulp.task('build', function (cb){
   'use strict';
-  return runSequence('clean', ['copy:build', 'html:build', 'pug:build', 'sass', 'ts:build', 'js:build'], cb);
+  return runSequence('clean', ['copy:build', 'sass', 'ts:build', 'js:build'], cb);
 });

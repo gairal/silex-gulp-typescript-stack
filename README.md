@@ -3,11 +3,9 @@
 ---
 
 ### TODO
-- [ ] copy assets files to web
-- [ ] Auto-reload files
-- [ ] Active menu in nav
 - [ ] Complete README
 - [ ] PHPUNIT
+- [ ] Find a solution to compile (minify+concat) assets and update twigs
 
 ---
 

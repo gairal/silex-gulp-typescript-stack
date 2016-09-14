@@ -19,7 +19,7 @@ class MainControllerProvider implements ControllerProviderInterface {
 
         $controllers->get('/page1', 'Acme\Controllers\MainController::page1')->bind('page1');
 
-        $controllers->get('/page2', 'Acme\Controllers\MainController::page2')->bind('page2');
+        $controllers->get('/calculator', 'Acme\Controllers\MainController::calculator')->bind('calculator');
 
         return $controllers;
     }

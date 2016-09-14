@@ -1,8 +1,13 @@
 {
     "require": {
         "silex/silex": "~2.0",
+        "symfony/browser-kit": "~3.1",
         "twig/twig": "~1.0",
         "symfony/twig-bridge": "~3.1"
+    },
+    "require-dev": {
+      "symfony/var-dumper": "^3.1",
+      "phpunit/phpunit": "~4.8"
     },
     "autoload": {
         "psr-4": {

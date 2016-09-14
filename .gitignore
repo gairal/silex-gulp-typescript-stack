@@ -49,6 +49,7 @@ public
 build
 compile
 typings
+web/assets
 
 #ignore src generated html
 _SpecRunner.html
